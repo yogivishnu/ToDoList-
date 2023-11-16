@@ -15,7 +15,7 @@ function Todo() {
   // Fetch tasks from database
   useEffect(() => {
     axios
-      .get("http://127.0.0.1:3001/getTodoList")
+      .get("https://todo-list-server-dn8e.onrender.com/getTodoList")
       .then((result) => {
         setTodoList(result.data);
       })
@@ -47,7 +47,7 @@ function Todo() {
     }
 
     axios
-      .post("http://127.0.0.1:3001/addTodoList", {
+      .post("https://todo-list-server-dn8e.onrender.com/addTodoList", {
         task: newTask,
         status: newStatus,
         deadline: newDeadline,
@@ -75,7 +75,7 @@ function Todo() {
 
     // Updating edited data to the database through updateById API
     axios
-      .post("http://127.0.0.1:3001/updateTodoList/" + id, editedData)
+      .post("https://todo-list-server-dn8e.onrender.com/updateTodoList/" + id, editedData)
       .then((result) => {
         console.log(result);
         setEditableId(null);
@@ -90,7 +90,7 @@ function Todo() {
   // Delete task from database
   const deleteTask = (id) => {
     axios
-      .delete("http://127.0.0.1:3001/deleteTodoList/" + id)
+      .delete("https://todo-list-server-dn8e.onrender.com/deleteTodoList/" + id)
       .then((result) => {
         console.log(result);
         window.location.reload();
